@@ -1,5 +1,6 @@
 package com.example.ex01;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,15 +24,36 @@ public class MainActivity extends AppCompatActivity {
             int count = 0;
 
 
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
                 count++;
-                if (count<6) {
-                    btn.setText("This is a click number:" + count + "\n");
+
+                if (count%7==0) {
+                    btn.setText("Boom!\n");
+                }
+                else if(count>=10){
+                    int temp=count;
+                    boolean found=false;
+                    while (temp>0) {
+                        if (temp % 10 == 7) {
+                            found=true;
+                            break;
+                        }
+                        temp /= 10;
+
+                    }
+                    if(found){
+                        btn.setText(" Boom!\n");
+                    }
+                    else{
+                        btn.setText("This is a click number:" + count + "\n");
+                    }
+
+
                 }
                 else{
-                    btn.setText("Enough to click. Go to new start!\n");
-                    count = 0;
+                    btn.setText("This is a click number:" + count + "\n");
                 }
 
             }
