@@ -20,9 +20,14 @@ public class MainActivity extends AppCompatActivity {
         Button btn;
         btn = findViewById(R.id.btnClickMe);
         btn.setOnClickListener(new View.OnClickListener() {
+            int count = 0;
+
+
             @Override
             public void onClick(View v) {
-                btn.setText("Oh, yea, I’ve been clicked!\n");
+                count++;
+                btn.setText("This is a click number:" + count+"\n");
+
             }
 
 
