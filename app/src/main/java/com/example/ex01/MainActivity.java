@@ -26,7 +26,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 count++;
-                btn.setText("This is a click number:" + count+"\n");
+                if (count<6) {
+                    btn.setText("This is a click number:" + count + "\n");
+                }
+                else{
+                    btn.setText("Enough to click. Go to new start!\n");
+                    count = 0;
+                }
 
             }
 
